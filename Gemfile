@@ -5,6 +5,7 @@ source "https://rubygems.org"
 gem "sinatra", "~> 2.1"
 
 ruby "2.7.4"
+gem "puma"
 
 # A fast and simple web server
 # https://github.com/macournoyer/thin
