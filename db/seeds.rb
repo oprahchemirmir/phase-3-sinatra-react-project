@@ -4,8 +4,8 @@ ProjectMember.destroy_all
 # Seed your database here
 #project.create(name: 'AMP' title: 'Azure management project', description: 'Azure plan for the year')
 puts "Creating projects"
-project1 = Project.create(name: 'TMA', title: 'Task management app', description: 'task handling project')
-project2 = Project.create(name: 'CCR', title: 'code challenge react', description: 'articles with ar')
+project1 = Project.create(name: 'TMA', title: 'charity app ', description: 'people are able to give there donations')
+project2 = Project.create(name: 'CCR', title: 'weather app', description: 'one can be able to tell the weather')
 project3 = Project.create(name: 'PFA', title: 'Pet finder app', description: 'Pet finder project')
 project4 = Project.create(name: 'MFA', title: 'Movie finder app', description: 'movie app project')
 project5 = Project.create(name: 'PMA', title: 'Portfolio management app', description: 'Portfolio management project')
