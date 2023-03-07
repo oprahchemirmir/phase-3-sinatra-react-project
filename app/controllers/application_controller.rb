@@ -1,11 +1,10 @@
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
-  
-  # Users
+  # Add routes
   get '/users' do
-    User.all.order(created_at: :asc).to_json
+    users = User.all.order(created_at: :asc)
+    users.to_json
   end
-  
   post '/users' do
     user = User.create(
       username: params[:username],
@@ -14,7 +13,6 @@ class ApplicationController < Sinatra::Base
     )
     user.to_json
   end
-  
   patch '/users/:id' do
     user = User.find(params[:id])
     user.update(
@@ -24,18 +22,16 @@ class ApplicationController < Sinatra::Base
     )
     user.to_json
   end
-  
   delete '/users/:id' do
     user = User.find(params[:id])
     user.destroy
     user.to_json
   end
-  
-  # Project Members
+  # Members
   get '/project-members' do
-    ProjectMember.all.order(created_at: :asc).to_json
+    members = ProjectMember.all.order(created_at: :asc)
+    members.to_json
   end
-  
   post '/project-members' do
     member = ProjectMember.create(
       name: params[:name],
@@ -45,7 +41,6 @@ class ApplicationController < Sinatra::Base
     )
     member.to_json
   end
-  
   patch '/project-members/:id' do
     member = ProjectMember.find(params[:id])
     member.update(
@@ -56,18 +51,16 @@ class ApplicationController < Sinatra::Base
     )
     member.to_json
   end
-  
   delete '/project-members/:id' do
     member = ProjectMember.find(params[:id])
     member.destroy
     member.to_json
   end
-  
   # Projects
   get '/projects' do
-    Project.all.order(created_at: :desc).to_json
+    projects = Project.all.order(created_at: :desc)
+    projects.to_json
   end
-  
   post '/projects' do
     project = Project.create(
       name: params[:name],
@@ -76,7 +69,6 @@ class ApplicationController < Sinatra::Base
     )
     project.to_json
   end
-  
   patch '/projects/:id' do
     project = Project.find(params[:id])
     project.update(
@@ -86,7 +78,6 @@ class ApplicationController < Sinatra::Base
     )
     project.to_json
   end
-  
   delete '/projects/:id' do
     project = Project.find(params[:id])
     project.destroy
